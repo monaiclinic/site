@@ -1,11 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monai Clinic</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Site com Banner de Vídeo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        :root {
+            --color-white: #fff;
+            --color-shadow: rgba(0, 0, 0, 0.7);
+            --font-family-base: "Fahkwang", sans-serif;
+            --header-height-nav: 100px;
+            --header-height-banner: 100vh;
+            --font-size-banner: 2.5rem;
+            --padding-banner-top: 130px;
+            --max-width-container: 90rem;
+            --spacing-horizontal: 1.25rem;
+            --black-6-c: #0F0E0D;
+            --pantone-414-c: #ADA495;
+            --pantone-5455-cvc: #D8D5CF;
+            --pantone-000-c: #F1F0EC;
+            --pantone-000-c: #FFFFFF;
+        }
+
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: var(--font-family-base);
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: #888 transparent;
+        }
+
+        .mx-auto {
+            max-width: var(--max-width-container);
+            margin: 0 auto;
+            padding: 0 var(--spacing-horizontal);
+            width: 100%;
+        }
+
+        nav {
+            height: var(--header-height-nav);
+            display: flex;
+            align-items: center;
+            padding: 0 var(--spacing-horizontal);
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        nav .navegacao {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav .navegacao ul li {
+            list-style: none;
+        }
+
+        nav .navegacao ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav .navegacao ul li a {
+            text-decoration: none;
+            color: var(--black-6-c);
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        nav .navegacao ul li a:hover {
+            color: var(--pantone-414-c);
+        }
+
+        nav .navegacao .btn-fale-conosco {
+            border: none;
+            padding: 18px 80px;
+            border-radius: 10px;
+            background-color: transparent;
+            border: 1px solid var(--pantone-414-c);
+            color: var(--pantone-414-c);
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav .navegacao .btn-fale-conosco:hover {
+            background-color: var(--pantone-414-c);
+            color: var(--color-white);
+        }
+
+        /* Header com vídeo banner */
+        header {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - var(--header-height-nav));
+            overflow: hidden;
+        }
+
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        header .wrapper-overlay {
+            position: relative;
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.753);
+            text-align: start;
+            padding: 15.6250rem 6.2500rem 0;
+            font-size: 2.9rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            width: 71.5000rem;
+        }
+
+        header .hero_texto_descricao {
+            font-size: 1.2rem;
+            text-align: justify;
+            margin: 1.2500rem 0;
+            line-height: 150%;
+        }
+
+        header .btn-fale-conosco {
+            border: none;
+            padding: 18px 80px;
+            background-color: var(--pantone-414-c);
+            color: var(--black-6-c);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: var(--font-family-base);
+        }
+
+        header .btn-fale-conosco:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+
+
+        main {
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav a img {
+                max-width: 200px;
+                height: auto;
+            }
+
+            header .wrapper-overlay {
+                padding: 250px 20px 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    
+    <nav>
+        <div class="mx-auto navegacao">
+            <a href="#">
+                <img src="./source/imagem/MONAI CLINIC_MARCA_PNG_21.png">
+            </a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <div>
+                <button class="btn-fale-conosco">fale conosco</button>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <video autoplay muted loop playsinline>
+            <source src="./source/video/banner.mp4" type="video/mp4" />
+        </video>
+        <div class="wrapper-overlay">
+            <div>Sua pele merece o melhor: resultados visíveis, autoestima renovada.</div>
+            <div class="hero_texto_descricao">
+                Sua pele reflete sua história e merece atenção especial a cada detalhe.
+                Na nossa clínica, oferecemos tratamentos que vão além da estética: promovem bem-estar, confiança e saúde
+                verdadeira.
+                Descubra resultados reais e sinta a transformação em cada fase do seu cuidado conosco.
+            </div>
+            <div>
+                <button class="btn-fale-conosco">fale conosco</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h1>Conteúdo Principal</h1>
+            <p>Este é um exemplo de conteúdo abaixo do banner de vídeo.</p>
+        </section>
+    </main>
+
 </body>
+
 </html>
